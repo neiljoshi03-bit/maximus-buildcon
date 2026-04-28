@@ -80,6 +80,9 @@ a { color: inherit; text-decoration: none; transition: color 0.3s var(--transiti
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     font-family: var(--font-serif);
     font-size: 26px;
     font-weight: 500;
@@ -89,6 +92,24 @@ a { color: inherit; text-decoration: none; transition: color 0.3s var(--transiti
 }
 
 .logo span { color: var(--color-accent); font-style: italic; font-weight: 400; }
+
+.logo-mark {
+    height: 38px;
+    width: auto;
+    display: block;
+    transition: height 0.4s var(--transition);
+}
+
+.navbar.scrolled .logo-mark { height: 30px; }
+
+/* Footer logo mark */
+.footer-logo-mark {
+    height: 56px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
 
 .nav-links {
     display: flex;
