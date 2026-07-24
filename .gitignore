@@ -5,3 +5,6 @@ node_modules/
 .env
 .env.local
 Thumbs.db
+
+# Local dev tooling
+.claude/settings.local.json

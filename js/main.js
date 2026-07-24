@@ -33,6 +33,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    /* ----- Hero "Explore" category menu ----- */
+    const exploreMenu = document.querySelector('.explore-menu');
+    if (exploreMenu) {
+        const exploreToggle = exploreMenu.querySelector('.explore-toggle');
+        const heroSection = exploreMenu.closest('.hero');
+
+        const setExplore = (open) => {
+            exploreMenu.classList.toggle('open', open);
+            exploreToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            /* Hero clips overflow; release it while the panel is showing. */
+            if (heroSection) heroSection.classList.toggle('menu-open', open);
+        };
+
+        exploreToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            setExplore(!exploreMenu.classList.contains('open'));
+        });
+        document.addEventListener('click', (e) => {
+            if (!exploreMenu.contains(e.target)) setExplore(false);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setExplore(false);
+        });
+    }
+
     /* ----- Reveal-on-scroll ----- */
     const revealEls = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
